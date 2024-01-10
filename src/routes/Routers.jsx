@@ -17,6 +17,7 @@ import Cancel from "../pages/Cancel";
 import NotificationPage from "../pages/NotificationPage";
 import GuestRoute from "./GuestRoute";
 import ForgotPassword from "../pages/ForgotPassword";
+import ServiceDocList from "../componets/Services/ServiceDocList";
 const Routers = () => {
   return (
     <Routes>
@@ -30,6 +31,7 @@ const Routers = () => {
         <Route path="forgot/password" element={<ForgotPassword />} />
         <Route path="contact" element={<Contact />} />
         <Route path="services" element={<Services />} />
+        <Route path="doctors/services/:id" element={<ServiceDocList />} />
         <Route path="success" element={<Success />} />
         <Route path="cancel" element={<Cancel />} />
         <Route path="notification" element={<NotificationPage />} />

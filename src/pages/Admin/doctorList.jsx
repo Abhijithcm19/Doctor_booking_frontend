@@ -51,10 +51,9 @@ const doctorList = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array to run this effect only once on mount
+  }, []);
 
   const handleToggleApproval = async (_id, isApproved) => {
-    console.log("ID:", _id);
     try {
       const updatedStatus =
         isApproved === "Approved" ? "cancelled" : "approved";
@@ -146,7 +145,7 @@ const doctorList = () => {
                     <tr key={_id}>
                       <td className={classes}>
                         <div className="flex items-center gap-3">
-                          <Avatar src={photo} alt={name}  size="sm" />
+                          <Avatar src={photo} alt={name} size="sm" />
                           <div className="flex flex-col">
                             <Typography
                               variant="small"
@@ -160,13 +159,12 @@ const doctorList = () => {
                               color="blue-gray"
                               className="font-normal opacity-70"
                             >
-                              {email}   
+                              {email}
                             </Typography>
                           </div>
                         </div>
                       </td>
                       <td className={classes}>
-                    
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -176,7 +174,6 @@ const doctorList = () => {
                         </Typography>
                       </td>
                       <td className={classes}>
-                     
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -193,13 +190,14 @@ const doctorList = () => {
                             color={
                               isApproved === "Approved" ? "green" : "blue-gray"
                             }
-                            onClick={() => handleToggleApproval(_id, isApproved)}
+                            onClick={() =>
+                              handleToggleApproval(_id, isApproved)
+                            }
                           >
                             {isApproved}
                           </Button>
                         </div>
                       </td>
-                      
                     </tr>
                   );
                 }

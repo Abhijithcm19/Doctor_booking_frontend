@@ -19,7 +19,6 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
   const validateForm = () => {
     const { email, password } = formData;
     if (!email || !password) {
@@ -45,7 +44,7 @@ const Login = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await res.json(); 
+      const result = await res.json();
       if (!res.ok) {
         throw new Error(result.message);
       }
@@ -58,8 +57,6 @@ const Login = () => {
           role: result.role,
         },
       });
-
-      console.log(result, "login data");
 
       setLoading(false);
       toast.success(result.message);
@@ -113,7 +110,10 @@ const Login = () => {
           </div>
 
           <p className="mt-3 text-textColor text-center">
-            <Link to="/forgot/password" className="text-primaryColor font-medium">
+            <Link
+              to="/forgot/password"
+              className="text-primaryColor font-medium"
+            >
               Forgot Password?
             </Link>
           </p>

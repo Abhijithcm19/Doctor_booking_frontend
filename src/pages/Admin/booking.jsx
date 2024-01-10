@@ -1,7 +1,7 @@
 import { Card, Typography } from "@material-tailwind/react";
- 
+
 const TABLE_HEAD = ["Name", "Job", "Employed", ""];
- 
+
 const TABLE_ROWS = [
   {
     name: "John Michael",
@@ -55,7 +55,7 @@ const booking = () => {
           {TABLE_ROWS.map(({ name, job, date }, index) => {
             const isLast = index === TABLE_ROWS.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
- 
+
             return (
               <tr key={name}>
                 <td className={classes}>
@@ -85,14 +85,13 @@ const booking = () => {
                     {date}
                   </Typography>
                 </td>
-               
               </tr>
             );
           })}
         </tbody>
       </table>
     </Card>
-  )
-}
+  );
+};
 
-export default booking
+export default booking;

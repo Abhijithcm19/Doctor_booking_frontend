@@ -21,9 +21,6 @@ const Dashboard = () => {
     loading,
     error,
   } = useGetProfile(`${BASE_URL}/doctors/profile/me`);
-  console.log("userData:", userData);
-  console.log("loading:", loading);
-  console.log("error:", error);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -35,20 +32,39 @@ const Dashboard = () => {
         <div className="grid md:grid-cols-3 gap-20">
           <div className="shadow-xl pb-[50px] px-[30px] rounded-lg bg-white">
             <div className="flex-col items-center justify-center py-3">
-              <button onClick={() => setTab('overview')} className={`${tab === 'overview' && 'bg-blue-100 text-blue-600'} font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}>
+              <button
+                onClick={() => setTab("overview")}
+                className={`${
+                  tab === "overview" && "bg-blue-100 text-blue-600"
+                } font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}
+              >
                 Overview
               </button>
-              <button onClick={() => setTab('appointments')} className={`${tab === 'appointments' && 'bg-blue-100 text-blue-600'} font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}>
+              <button
+                onClick={() => setTab("appointments")}
+                className={`${
+                  tab === "appointments" && "bg-blue-100 text-blue-600"
+                } font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}
+              >
                 Appointements
               </button>
-              <button onClick={() => setTab('timeslots')} className={`${tab === 'timeslots' && 'bg-blue-100 text-blue-600'} font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}>
+              <button
+                onClick={() => setTab("timeslots")}
+                className={`${
+                  tab === "timeslots" && "bg-blue-100 text-blue-600"
+                } font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}
+              >
                 Add TimeSlots
               </button>
-              <button onClick={() => setTab('settings')} className={`${tab === 'settings' && 'bg-blue-100 text-blue-600'} font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}>
+              <button
+                onClick={() => setTab("settings")}
+                className={`${
+                  tab === "settings" && "bg-blue-100 text-blue-600"
+                } font-semibold w-full py-4   text-[16px] leading-2 rounded-md text-black`}
+              >
                 Profile
               </button>
             </div>
-          
 
             <div className="mt-[50px] md:mt-[100px]">
               <button
@@ -63,12 +79,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {tab === 'overview' && <Overview userData={userData} />}
-          {tab === 'appointments' && <Appointment user={userData} />}
-          {tab === 'settings' && <Profile user={userData} />}
-          {tab === 'timeslots' && <AddTimeslots user={userData} />}
-
-
+          {tab === "overview" && <Overview userData={userData} />}
+          {tab === "appointments" && <Appointment user={userData} />}
+          {tab === "settings" && <Profile user={userData} />}
+          {tab === "timeslots" && <AddTimeslots user={userData} />}
         </div>
       </div>
     </section>

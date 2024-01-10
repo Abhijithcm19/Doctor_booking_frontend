@@ -16,7 +16,6 @@ const Profile = ({ user }) => {
     photo: "null",
     gender: "",
     bloodType: "",
-    
   });
 
   const navigate = useNavigate();

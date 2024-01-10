@@ -5,7 +5,6 @@ import { IoIosWarning } from "react-icons/io";
 import startIcon from "../../assets/images/Star.png";
 
 const Overview = ({ userData }) => {
-  console.log("jock",userData)
   return (
     <div>
       <div className=" px-2 bg-yellow-100 text-sm whitespace-nowrap ">
@@ -44,7 +43,10 @@ const Overview = ({ userData }) => {
         >
           About of
           <span className="text-irisBlueColor font-bold text-[24px] leading-9"></span>
-          <p className="text-irisBlueColor font-bold text-[24px] mr-4"> {userData.about}</p>
+          <p className="text-irisBlueColor font-bold text-[24px] mr-4">
+            {" "}
+            {userData.about}
+          </p>
         </h3>
         <h3
           className="py-8 text-[20px] leading-[30px] text-headingColor font-semibold flex items-center

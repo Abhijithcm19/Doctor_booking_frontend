@@ -10,7 +10,6 @@ const Appointments = ({ user }) => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log("appooodata ", user);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,9 +74,12 @@ const Appointments = ({ user }) => {
                 <td className="px-8 py-1">{appointment.status}</td>
                 <td className="px-10 py-1">{appointment.ticketPrice}</td>
                 <td className="px-10 py-1">
-      {`${new Date(appointment.dateOfPayment).toLocaleDateString()} ${new Date(appointment.dateOfPayment).toLocaleTimeString()}`}
-     
-    </td>
+                  {`${new Date(
+                    appointment.dateOfPayment
+                  ).toLocaleDateString()} ${new Date(
+                    appointment.dateOfPayment
+                  ).toLocaleTimeString()}`}
+                </td>
               </tr>
             ))}
           </tbody>

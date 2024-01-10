@@ -1,5 +1,5 @@
 // AdminLayout.jsx
-import React from 'react';
+import React from "react";
 
 const AdminLayout = ({ children }) => {
   return <div>{children}</div>;

@@ -6,17 +6,18 @@ import { BASE_URL, token } from "../config";
 import { toast } from "react-toastify";
 const NotificationPage = () => {
   const { user, role, token } = useContext(authContext);
-  console.log("userrrrrrr", user);
   const handleMarkAllRead = async () => {
     try {
       const res = await axios.post(
         "http://localhost:4000/users/get-all-notification",
         {
           userId: user._id,
-        },  
-        {headers: {
+        },
+        {
+          headers: {
             Authorization: `Bearer ${token}`,
-          },}
+          },
+        }
       );
 
       if (res.data.success) {

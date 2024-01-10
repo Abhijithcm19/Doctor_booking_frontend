@@ -1,9 +1,9 @@
-import { createContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from "react";
 
 // Check for existing data in localStorage
-const storedUser = localStorage.getItem('user');
-const storedRole = localStorage.getItem('role');
-const storedToken = localStorage.getItem('token');
+const storedUser = localStorage.getItem("user");
+const storedRole = localStorage.getItem("role");
+const storedToken = localStorage.getItem("token");
 
 const initialState = {
   user: storedUser ? JSON.parse(storedUser) : null,
@@ -15,19 +15,19 @@ export const authContext = createContext(initialState);
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    case 'LOGIN_START':
+    case "LOGIN_START":
       return {
         user: null,
         role: null,
         token: null,
       };
-    case 'LOGIN_SUCCESS':
+    case "LOGIN_SUCCESS":
       return {
         user: action.payload.user,
         token: action.payload.token,
         role: action.payload.role,
       };
-    case 'LOGOUT':
+    case "LOGOUT":
       return {
         user: null,
         role: null,
@@ -42,13 +42,20 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(state.user));
-    localStorage.setItem('token', state.token);
-    localStorage.setItem('role', state.role);
+    localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("token", state.token);
+    localStorage.setItem("role", state.role);
   }, [state]);
 
   return (
-    <authContext.Provider value={{ user: state.user, token: state.token, role: state.role, dispatch }}>
+    <authContext.Provider
+      value={{
+        user: state.user,
+        token: state.token,
+        role: state.role,
+        dispatch,
+      }}
+    >
       {children}
     </authContext.Provider>
   );

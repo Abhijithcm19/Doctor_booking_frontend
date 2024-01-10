@@ -31,8 +31,8 @@ const Signup = () => {
     const file = event.target.files[0];
     const data = await uploadImageToCloudinary(file);
 
-    setPrviewURL(data.url); // Set the preview URL
-    setSelectedFile(data.url); // Update the selectedFile state with the URL
+    setPrviewURL(data.url);
+    setSelectedFile(data.url); 
     setFormData({ ...formData, photo: data.url });
   };
 
@@ -100,7 +100,7 @@ const Signup = () => {
 
       setLoading(false);
       toast.success(message);
-      navigate("/otp");
+      navigate("/otp", { state: { email: formData.email } });
     } catch (err) {
       toast.error(err.message);
       setLoading(false);

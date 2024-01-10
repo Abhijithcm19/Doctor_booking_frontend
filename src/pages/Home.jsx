@@ -12,7 +12,6 @@ import videoIcon from "../assets/images/video-icon.png";
 import avatarIcon from "../assets/images/avatar-icon.png";
 import faqImg from "../assets/images/faq-img.png";
 
-
 import { BsArrowRight } from "react-icons/bs";
 import About from "../componets/About/About";
 import ServiceList from "../componets/Services/ServiceList";
@@ -101,7 +100,7 @@ const Home = () => {
             <h2 className="heading text-center">
               Providing the best medical services
             </h2>
-            
+
             <p className="text__para text-center">
               World-class care for everyone. Our health System offers unmatched,
               expert health care.
@@ -207,49 +206,66 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="flex items-center justify-between flex-col lg:flex-row">
-
             {/*============ feature content =========== */}
             <div className="xl:w-[670px]">
-             <h2 className="heading">
-              Get virtual treatment <br /> anytime
+              <h2 className="heading">
+                Get virtual treatment <br /> anytime
               </h2>
               <ul className="pl-4">
-                <li className="text__para">1. Schedule the appointment directly.</li>
-                <li className="text__para">2. Search for your physician here, and contact their office.</li>
-                <li className="text__para">3. View our physicians who are accepting new patients, 
-                use the online <br></br>Scheduling tool to select an appointment time.</li>
+                <li className="text__para">
+                  1. Schedule the appointment directly.
+                </li>
+                <li className="text__para">
+                  2. Search for your physician here, and contact their office.
+                </li>
+                <li className="text__para">
+                  3. View our physicians who are accepting new patients, use the
+                  online <br></br>Scheduling tool to select an appointment time.
+                </li>
               </ul>
-              <Link to='/'><button className="btn">Learn More</button></Link>
+              <Link to="/">
+                <button className="btn">Learn More</button>
+              </Link>
             </div>
-            
+
             {/*============ feature img =========== */}
             <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
-              <img src={featureImg} className='w-3/4' alt="" />
+              <img src={featureImg} className="w-3/4" alt="" />
 
               <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:pb-[26px] rounded-[10px]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-[6px] lg:gap-3">
-                    <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-headingColor 
-                    font-[600]">tue, 24</p>
-                     <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-textColor 
-                    font-[400]">10:00AM</p>
+                    <p
+                      className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-headingColor 
+                    font-[600]"
+                    >
+                      tue, 24
+                    </p>
+                    <p
+                      className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-textColor 
+                    font-[400]"
+                    >
+                      10:00AM
+                    </p>
                   </div>
                   <span className="w-5 h-5 lg:w-[34px] lg:h-[34px] flex items-center justify-center bg-yellowColor rounded py-1 px-[6px] lg:py-3 lg:px-[9px]">
-                    <img src={videoIcon} alt=""/>
+                    <img src={videoIcon} alt="" />
                   </span>
                 </div>
-             
 
-                <div className="w-[65px] lg:w-[96px] bg-[#CCF0F3] py-1 px-2 lg:py-[6px] lg:px-[10px] 
+                <div
+                  className="w-[65px] lg:w-[96px] bg-[#CCF0F3] py-1 px-2 lg:py-[6px] lg:px-[10px] 
                  text-[8px] leading-[8px] lg:text-[12px] lg:leading-4 text-irisBlueColor font-[500] mt-2 lg:mt-4
-                 rounded-full">
-              Consultation
-             </div>
-             <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
-              <img src={avatarIcon} alt="" />
-              <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-headingColor">
-                Wayne Collins</h4>
-             </div>
+                 rounded-full"
+                >
+                  Consultation
+                </div>
+                <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
+                  <img src={avatarIcon} alt="" />
+                  <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-headingColor">
+                    Wayne Collins
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
@@ -261,7 +277,7 @@ const Home = () => {
       {/*======= great doctor section=======*/}
       <section>
         <div className="container">
-        <div className="xl:w-[470px] mx-auto">
+          <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">Our great doctors</h2>
             <p className="text__para">
               {" "}
@@ -270,8 +286,7 @@ const Home = () => {
             </p>
           </div>
 
-          <DoctorList/>
-
+          <DoctorList />
         </div>
       </section>
       {/*======= great doctor section end=======*/}
@@ -281,7 +296,7 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
             <div className="w-1/2 hidden md:block">
-              <img src={faqImg} alt=""/>
+              <img src={faqImg} alt="" />
             </div>
 
             <div className="w-full md:w-1/2">
@@ -292,12 +307,10 @@ const Home = () => {
               <FaqList />
             </div>
           </div>
-        </div> 
+        </div>
       </section>
 
       {/*======= faq section end=======*/}
-
-  
     </>
   );
 };

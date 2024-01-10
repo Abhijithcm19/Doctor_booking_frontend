@@ -63,22 +63,6 @@ const addServices = () => {
     fetchServices();
   }, []);
 
-  // const handleAddService = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:4000/admin/services",
-  //       {
-  //         name: serviceName,
-  //         description: description,
-  //         isBlocked: false,
-  //       }
-  //     );
-  //     console.log("Service added:", response.data);
-  //   } catch (error) {
-  //     console.error("Error adding service:", error);
-  //   }
-  // };
-
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -95,7 +79,6 @@ const addServices = () => {
 
       if (res.status === 201) {
         toast.success("Service added successfully");
-        // Update services after successful addition
         const updatedServices = await axios.get(
           "http://localhost:4000/admin/services"
         );

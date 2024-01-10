@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../config.js";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import loginImg from "../../assets/images/log2.jpg";
 
@@ -27,7 +27,7 @@ export default function Login() {
         body: JSON.stringify(formData),
       });
 
-      const result = await res.json(); // Parse the response body once
+      const result = await res.json();
 
       if (!res.ok) {
         throw new Error(result.message);
@@ -35,16 +35,14 @@ export default function Login() {
       console.log(result, "login data");
       toast.success(result.message);
       navigate("/admin");
-      
     } catch (err) {
-      if (err.message === 'Unauthorized') {
-        toast.error('Invalid email or password.');
+      if (err.message === "Unauthorized") {
+        toast.error("Invalid email or password.");
       } else {
-        toast.error('Invalid email or password.. Please try again later.');
+        toast.error("Invalid email or password.. Please try again later.");
       }
     }
-
-  }
+  };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
@@ -53,7 +51,10 @@ export default function Login() {
       </div>
 
       <div className="bg-gray-800 flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8" onSubmit={submitHandler}>
+        <form
+          className="max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8"
+          onSubmit={submitHandler}
+        >
           <h2 className="text-4xl dark:text-white font-bold text-center">
             SIGN IN
           </h2>
@@ -78,7 +79,10 @@ export default function Login() {
             />
           </div>
 
-          <button  type="submit" className="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg">
+          <button
+            type="submit"
+            className="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
+          >
             SIGNIN
           </button>
         </form>

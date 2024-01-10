@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
-import { token } from '../config';
-
-
+import { useEffect, useState } from "react";
+import { token } from "../config";
 
 const useFetchData = (url) => {
   const [data, setData] = useState([]);
@@ -15,7 +13,7 @@ const useFetchData = (url) => {
       try {
         const res = await fetch(url, {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the JWT token
+            Authorization: `Bearer ${token}`,
           },
         });
 

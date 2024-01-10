@@ -32,9 +32,7 @@ const Profile = ({ user }) => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:4000/admin/services"
-        );
+        const response = await axios.get(`${BASE_URL}/admin/services`);
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching services:", error);
@@ -257,7 +255,7 @@ const Profile = ({ user }) => {
               >
                 <option value="">Select</option>
                 {services.map((service) => (
-                  <option key={service._id} value={service.name}>
+                  <option key={service._id} value={service._id}>
                     {service.name}
                   </option>
                 ))}

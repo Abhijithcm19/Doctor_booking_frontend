@@ -20,17 +20,15 @@ const DoctorDetails = () => {
   useEffect(() => {
     const fetchDoctorDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/doctors/${id}`); 
-        setDoctorDetails(response.data.data); 
+        const response = await axios.get(`${BASE_URL}/doctors/${id}`);
+        setDoctorDetails(response.data.data);
       } catch (error) {
-        
         console.error("Error fetching doctor details:", error);
       }
     };
 
     fetchDoctorDetails();
   }, [id]);
-console.log("check details",doctorDetails)
   return (
     <section>
       <div className="max-w-[1170px] px-5 mx-auto">
@@ -65,7 +63,7 @@ console.log("check details",doctorDetails)
                 </div>
               </div>
             ) : (
-              <Loading /> 
+              <Loading />
             )}
 
             <div className="mt-[50px] border-b border-solid border-[#0066ff34] ">
@@ -99,7 +97,7 @@ console.log("check details",doctorDetails)
               {tab === "feedback" && <Feedback doctorDetails={doctorDetails} />}
             </div>
           </div>
-          <SidePanel doctorDetails={doctorDetails}/>
+          <SidePanel doctorDetails={doctorDetails} />
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,31 +6,28 @@ import { authContext } from "../context/AuthContext";
 import { BASE_URL } from "../config.js";
 import { HashLoader } from "react-spinners";
 
-
-
 const ForgotPassword = () => {
+  const [formData, setFormData] = useState({
+    newPassword: "",
+    confirmPassword: "",
+  });
 
-    const [formData, setFormData] = useState({
-        newPassword: "",
-        confirmPassword: "",
-      });
-    
-      const [loading, setLoading] = useState(false);
-      const navigate = useNavigate();
-      const { dispatch } = useContext(authContext);
-    
-      const handleInputChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
-    
-      const submitHandler = async (event) => {
-        event.preventDefault();
-      }
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { dispatch } = useContext(authContext);
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+  };
   return (
     <section className="px-5 lg:px-0">
       <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
         <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">
-          <span className="text-primaryColor"></span> 
+          <span className="text-primaryColor"></span>
         </h3>
 
         <form className="py-4 md:py-0" onSubmit={submitHandler}>
@@ -66,11 +63,10 @@ const ForgotPassword = () => {
               {loading ? <HashLoader size={25} color="#fff" /> : "Login"}
             </button>
           </div>
-
         </form>
       </div>
     </section>
   );
 };
 
-export default ForgotPassword
+export default ForgotPassword;

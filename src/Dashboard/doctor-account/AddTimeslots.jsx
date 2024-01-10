@@ -161,13 +161,12 @@ const AddTimeslots = ({ user }) => {
         {/* Submit button */}
         <div className="mt-7">
           <button
-           disabled={loading && true}
+            disabled={loading && true}
             type="submit"
             className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3"
             style={{ width: "690px" }}
           >
             {loading ? <HashLoader size={25} color="#ffffff" /> : " Add Slot"}
-           
           </button>
         </div>
       </form>
