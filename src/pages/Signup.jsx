@@ -32,7 +32,7 @@ const Signup = () => {
     const data = await uploadImageToCloudinary(file);
 
     setPrviewURL(data.url);
-    setSelectedFile(data.url); 
+    setSelectedFile(data.url);
     setFormData({ ...formData, photo: data.url });
   };
 
@@ -82,9 +82,18 @@ const Signup = () => {
       return;
     }
 
+    if (!selectedFile) {
+      toast.error("Photois");
+      return;
+    }
+
     setLoading(true);
 
     try {
+      const data = await uploadImageToCloudinary(selectedFile);
+
+      setFormData({ ...formData, photo: data.url });
+
       const res = await fetch(`${BASE_URL}/api/v1/auth/register`, {
         method: "post",
         headers: {

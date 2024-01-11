@@ -38,6 +38,7 @@ const SidePanel = ({ doctorDetails }) => {
     return <Loading />;
   }
   const { _id, ticketPrice, timeSlots, photo, name } = doctorDetails;
+  const amountInPaise = ticketPrice * 100;
   const razokey = "rzp_test_M9VQH9IQRRuHNb";
   const currency = "INR";
   const receiptId = "qwsaq1";
@@ -55,7 +56,7 @@ const SidePanel = ({ doctorDetails }) => {
       const response = await fetch(`${BASE_URL}/users/payments`, {
         method: "POST",
         body: JSON.stringify({
-          amount: ticketPrice,
+          amount: amountInPaise,
           currency,
           receipt: receiptId,
         }),

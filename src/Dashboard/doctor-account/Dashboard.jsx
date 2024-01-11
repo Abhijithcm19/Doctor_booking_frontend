@@ -1,12 +1,9 @@
 import { useContext, useState } from "react";
-import { IoIosWarning } from "react-icons/io";
 import { authContext } from "./../../context/AuthContext";
-
 import useGetProfile from "../../hooks/useFetchData.jsx";
 import { BASE_URL } from "../../config";
 import Loading from "../../componets/Loader/Loading";
 import Error from "../../componets/Error/Error";
-import startIcon from "../../assets/images/Star.png";
 import Appointment from "../doctor-account/Appointments";
 import Overview from "../doctor-account/Overview";
 import Profile from "../doctor-account/DocProfile";
