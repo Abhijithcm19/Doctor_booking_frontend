@@ -83,7 +83,7 @@ const Signup = () => {
     }
 
     if (!selectedFile) {
-      toast.error("Photois");
+      toast.error("Please wait photo uploading");
       return;
     }
 
@@ -113,6 +113,7 @@ const Signup = () => {
     } catch (err) {
       toast.error(err.message);
       setLoading(false);
+      return;
     }
   };
 
