@@ -101,17 +101,17 @@ const Signup = () => {
         },
         body: JSON.stringify(formData),
       });
-      const { message } = await res.json();
 
       if (!res.ok) {
-        throw new Error(message);
-      }
+        const { error } = await res.json();
+        throw new Error(error);      }
 
-      setLoading(false);
-      toast.success(message);
+        setLoading(false);
+        const { message } = await res.json();
+        toast.success(message);
       navigate("/otp", { state: { email: formData.email } });
     } catch (err) {
-      toast.error(err.message);
+      toast.error(err.message || "An error occurred. Please try again.");
       setLoading(false);
       return;
     }
