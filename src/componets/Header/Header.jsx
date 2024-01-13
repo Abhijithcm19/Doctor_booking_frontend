@@ -61,11 +61,12 @@ const Header = () => {
           </div>
           {/* ======= menu ======== */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className="menu flex item-center gap-[2.7rem]">
+          <ul className="menu flex item-center gap-[2.7rem]">
               {navLinks.map(
                 (link, index) =>
-                  // Conditionally render the 'Find a Doctor' link only for patients (role !== 'doctor')
-                  !(link.path === "/doctors" && role === "doctor") && (
+                  // Conditionally render the 'Find a Doctor' and 'Services' links based on user's role
+                  !(link.path === "/doctors" && role === "doctor") &&
+                  !(link.path === "/services" && role === "doctor") && (
                     <li key={index}>
                       <NavLink
                         to={link.path}

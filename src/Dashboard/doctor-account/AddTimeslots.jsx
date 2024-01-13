@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { HashLoader } from "react-spinners";
+
 const AddTimeslots = ({ user }) => {
   const [formData, setFormData] = useState({
     timeSlots: [],

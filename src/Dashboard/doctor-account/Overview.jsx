@@ -1,6 +1,7 @@
 import React from "react";
 import { IoIosWarning } from "react-icons/io";
 import startIcon from "../../assets/images/Star.png";
+import Loading from "../../componets/Loader/Loading";
 
 const Overview = ({ userData }) => {
   if (!userData) {
@@ -40,9 +41,9 @@ const Overview = ({ userData }) => {
       </div>
       <div className="flex-col ">
         <h3 className="text-[20px] leading-[30px] text-headingColor font-semibold">
-          About
-          <span className="text-irisBlueColor font-bold text-[24px] leading-9">
-            {userData.about}
+          About <br></br>
+          <span className="text-irisBlueColor font-bold text-[15px] leading-9">
+             {userData.about}
           </span>
         </h3>
         <h3 className="py-8 text-[20px] leading-[30px] text-headingColor font-semibold">

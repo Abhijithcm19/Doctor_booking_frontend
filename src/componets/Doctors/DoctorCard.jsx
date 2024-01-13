@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import startIcon from "../../assets/images/Star.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import { authContext } from "../../context/AuthContext.jsx";
 
 const DoctorCard = ({ doctor }) => {
+  const { user, role, token } = useContext(authContext);
+
   const {
     name,
     _id,
@@ -20,10 +23,10 @@ const DoctorCard = ({ doctor }) => {
         src={photo}
         alt=""
         style={{
-          width: "200px",
-          height: "150px",
+          width: "300px",
+          height: "300px",
           objectFit: "cover",
-          borderRadius: "10px", 
+          borderRadius: "10px",
         }}
       />
 
@@ -33,7 +36,7 @@ const DoctorCard = ({ doctor }) => {
 
       <div className="mt-2 lg:mt-4 flex items-center justify-between">
         <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-2 lg:px-6 text-[12px] leading-4 lg:text-[16px] lg:leading-7 font-semibold rounded">
-          {specialization}
+        {doctor.qualifications[0].degree}
         </span>
 
         <div className="flex items-center gap-[6px]">
@@ -55,14 +58,15 @@ const DoctorCard = ({ doctor }) => {
             At {hospital}
           </p>
         </div>
-
-        <Link
-          to={`/doctors/${_id}`}
-          className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] 
+        {role !== "doctor" && (
+          <Link
+            to={`/doctors/${_id}`}
+            className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] 
                    flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-        >
-          <BsArrowRight className="group-hover:text-white w-6 h-5" />
-        </Link>
+          >
+            <BsArrowRight className="group-hover:text-white w-6 h-5" />
+          </Link>
+        )}
       </div>
     </div>
   );

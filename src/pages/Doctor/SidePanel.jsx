@@ -229,7 +229,7 @@ const SidePanel = ({ doctorDetails }) => {
         </div>
         <div className="mt-4">
           <p className="text-para mt-2 font-semibold text-headingColor">
-            Select Appointment Start Time:
+            Enter Appointment Start Time:
           </p>
           <div className="mx-auto w-56">
             <TimePicker

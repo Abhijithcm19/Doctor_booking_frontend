@@ -19,7 +19,9 @@ const DoctorList = () => {
     fetchDoctors();
   }, []);
 
-  const sortedDoctors = doctorData.sort((a, b) => b.averageRating - a.averageRating);
+  const sortedDoctors = doctorData.sort(
+    (a, b) => b.averageRating - a.averageRating
+  );
 
   const topThreeDoctors = sortedDoctors.slice(0, 3);
 

@@ -12,11 +12,11 @@ const MyBookings = ({ user }) => {
 
   const formatDateTime = (isoDateTime) => {
     const date = new Date(isoDateTime);
-    const formattedDate = date.toLocaleDateString(); // Format the date (modify as needed)
+    const formattedDate = date.toLocaleDateString(); 
     const formattedTime = date.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
-    }); // Format the time
+    }); 
     return `${formattedDate} ${formattedTime}`;
   };
 
@@ -52,7 +52,7 @@ const MyBookings = ({ user }) => {
   }
 
   if (error && !loading) {
-    return <Error errMessage={error} />;
+    return <Error  />;
   }
 
   return (

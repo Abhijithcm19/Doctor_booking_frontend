@@ -1,10 +1,13 @@
+import React, { useEffect, useRef, useContext } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { BASE_URL, token } from "../../config";
+import { authContext } from "../../context/AuthContext.jsx";
 
 const ServiceCard = ({ service, index }) => {
-  const { specialization, bgColor, textColor } = service;
+  const { user, role, token } = useContext(authContext);
 
+  const { specialization, bgColor, textColor } = service;
 
   return (
     <div className="py-[30px] px-3 lg:px-5">
@@ -16,12 +19,14 @@ const ServiceCard = ({ service, index }) => {
       </p>
 
       <div className="flex item-center justify-between mt-[30px]">
-        <Link
-          to={`/doctors/services/${specialization._id}`}
-          className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] flex items-center justify-center group hover:bg-primaryColor hover:border-none"
-        >
-          <BsArrowRight className="group-hover:text-white w-6 h-5" />
-        </Link>
+        {role !== "doctor" && (
+          <Link
+            to={`/doctors/services/${specialization._id}`}
+            className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] flex items-center justify-center group hover:bg-primaryColor hover:border-none"
+          >
+            <BsArrowRight className="group-hover:text-white w-6 h-5" />
+          </Link>
+        )}
 
         <span
           className="w-[44px] h-[44px] flex items-center justify-center text-[18px] leading[30px] font-[600]"

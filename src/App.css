@@ -55,14 +55,14 @@ body {
 
 }
 .doctor-image-container {
-  width: 300px; /* Set the desired width */
-  height: 400px; /* Set the desired height */
+  width: 400px; /* Set the desired width */
+  height: 500px; /* Set the desired height */
   overflow: hidden; /* Ensure images don't overflow */
 }
 
 .doctor-image-container img {
-  width: 300px; /* Ensure the image fills the container */
-  height: 400px; /* Maintain aspect ratio */
+  width: 400px; /* Ensure the image fills the container */
+  height: 500px; /* Maintain aspect ratio */
   object-fit: cover; /* Maintain image aspect ratio and cover the container */
 }
 @media only screen and (max-width: 768px) {
@@ -99,4 +99,44 @@ body {
 .error-message {
   color: red;
   font-size: 14px;
+}
+.password-input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.Modal .confirm-button,
+.Modal .cancel-button {
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.Modal .confirm-button {
+  background-color: #007bff;
+}
+
+.Modal .cancel-button {
+  background-color: #dc3545;
+}
+
+.Modal .confirm-button:hover {
+  background-color: #0056b3;
+}
+
+.Modal .cancel-button:hover {
+  background-color: #c82333;
 }
