@@ -162,7 +162,7 @@ const SidePanel = ({ doctorDetails }) => {
 
       const formattedDate = moment(selectedDate).format("YYYY-MM-DD");
       const response = await axios.post(
-        `http://localhost:4000/users/available-slots`,
+        `${BASE_URL}/users/available-slots`,
         {
           doctorId: doctorDetails._id,
           startTime: startTime,

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -52,7 +53,7 @@ const addServices = () => {
     const fetchServices = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/admin/services"
+          `${BASE_URL}/admin/services`
         );
         setServices(response.data);
       } catch (error) {
@@ -71,7 +72,7 @@ const addServices = () => {
     event.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:4000/admin/services", {
+      const res = await axios.post(`${BASE_URL}/admin/services`, {
         name: formData.name,
         discription: formData.discription,
         isBlocked: false,
@@ -80,7 +81,7 @@ const addServices = () => {
       if (res.status === 201) {
         toast.success("Service added successfully");
         const updatedServices = await axios.get(
-          "http://localhost:4000/admin/services"
+          `${BASE_URL}/admin/services`
         );
         setServices(updatedServices.data);
       } else {

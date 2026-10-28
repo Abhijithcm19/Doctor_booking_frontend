@@ -9,7 +9,7 @@ const NotificationPage = () => {
   const handleMarkAllRead = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/users/get-all-notification",
+        `${BASE_URL}/users/get-all-notification`,
         {
           userId: user._id,
         },

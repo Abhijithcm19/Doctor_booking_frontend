@@ -2,6 +2,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 import {
   Card,
   CardHeader,
@@ -42,7 +43,7 @@ const userList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/users");
+        const response = await axios.get(`${BASE_URL}/admin/users`);
         setUserData(response.data.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -55,11 +56,11 @@ const userList = () => {
   const handleToggleApproval = async (_id, isBlocked) => {
     try {
       const updatedStatus = isBlocked === "false" ? "true" : "false";
-      await axios.put(`http://localhost:4000/admin/users/${_id}`, {
+      await axios.put(`${BASE_URL}/admin/users/${_id}`, {
         updatedStatus,
       });
 
-      const response = await axios.get("http://localhost:4000/admin/users");
+      const response = await axios.get(`${BASE_URL}/admin/users`);
       setUserData(response.data.data);
     } catch (error) {
       console.error("Error toggling user approval status:", error);

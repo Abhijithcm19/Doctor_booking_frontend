@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
@@ -43,7 +44,7 @@ const doctorList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/doctors");
+        const response = await axios.get(`${BASE_URL}/admin/doctors`);
         setDoctorData(response.data.data);
       } catch (error) {
         console.error("Error fetching doctor data:", error);
@@ -57,11 +58,11 @@ const doctorList = () => {
     try {
       const updatedStatus =
         isApproved === "Approved" ? "cancelled" : "approved";
-      await axios.put(`http://localhost:4000/admin/doctors/${_id}`, {
+      await axios.put(`${BASE_URL}/admin/doctors/${_id}`, {
         updatedStatus,
       });
 
-      const response = await axios.get("http://localhost:4000/admin/doctors");
+      const response = await axios.get(`${BASE_URL}/admin/doctors`);
       setDoctorData(response.data.data);
     } catch (error) {
       console.error("Error toggling doctor approval status:", error);
